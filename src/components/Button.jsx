@@ -1,20 +1,22 @@
-import React from 'react'
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import React from "react";
+import styled from "styled-components";
+import PropTypes from "prop-types";
 
-const Button = ({label}) => {
-  return <ButtonContainer>{label}</ButtonContainer>;
-}
+const Button = ({ label, onClick }) => {
+    return <ButtonContainer onClick={onClick}>{label}</ButtonContainer>;
+};
 
 export default Button;
 
 Button.propTypes = {
-  label: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
 };
 
 Button.defaultProps = {
-  label: 'Get Started',
-}
+    label: "Get Started",
+    onClick: () => {},
+};
 
 const ButtonContainer = styled.button`
     background-color: #42c83c;
@@ -22,10 +24,18 @@ const ButtonContainer = styled.button`
     border-radius: 30px;
     padding-block: 31px;
     width: 100%;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #42c43c;
+    }
+
+    &:focus {
+        outline: none;
+    }
 
     color: #f6f6f6;
 
-    font-family: Satoshi;
     font-size: 22px;
     font-style: normal;
     font-weight: 700;
