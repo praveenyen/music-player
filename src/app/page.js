@@ -9,9 +9,8 @@ export default function Home() {
 
     useEffect(() => {
       setTimeout(() => {
-        // below code will be exectud after 2 seconds
         setShowSplash(false);
-      }, 2000)
+      }, 1000)
     }, [])
 
     return (
